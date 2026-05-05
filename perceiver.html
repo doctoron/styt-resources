@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Perceiver — You See What Others Miss</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0A1F44;
+    --navy-light: rgba(10,31,68,0.65);
+    --gold: #F5C542;
+    --gold-dark: #D4A820;
+    --white: #ffffff;
+    --bg: #0E2252;
+    --card-bg: rgba(255,255,255,0.06);
+    --card-border: rgba(255,255,255,0.14);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 80px 24px 60px;
+    text-align: center;
+  }
+
+  .hero-label {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.72);
+    max-width: 520px;
+    margin: 0 auto 12px;
+    line-height: 1.7;
+  }
+
+  .hero-tension {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ── STRIKES ── */
+  .strikes {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+
+  .strikes-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .strike {
+    background: var(--card-bg);
+    border: 1.5px solid var(--card-border);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .strike::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--gold);
+    border-radius: 3px 0 0 3px;
+  }
+
+  .strike-number {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .strike h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.35;
+  }
+
+  .strike p {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.65;
+  }
+
+  /* ── CHAPTERS ── */
+  .chapters {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+
+  .chapters-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .chapters-header h2 {
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .chapters-header p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.55);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .chapters-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  .chapter-card {
+    background: rgba(255,255,255,0.05);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 28px 22px;
+  }
+
+  .chapter-num {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .chapter-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .chapter-card p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.58);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .chapter-why {
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .chapter-why-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 5px;
+  }
+
+  .chapter-why p {
+    font-size: 0.84rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── CTA ── */
+  .cta-block {
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 20px 24px 80px;
+    text-align: center;
+  }
+
+  .cta-block p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 24px;
+    line-height: 1.65;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: #071530;
+    padding: 1rem 2.2rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-bottom: 14px;
+    transition: background 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--gold-dark); }
+
+  .btn-secondary {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.45);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .btn-secondary:hover { color: rgba(255,255,255,0.75); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    max-width: 700px;
+    margin: 0 auto 60px;
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .chapters-grid { grid-template-columns: 1fr; }
+    .hero { padding: 60px 20px 40px; }
+    .strike { padding: 22px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-label">AI Perceiver</span>
+  <h1>You see patterns<br>others <em>miss</em>—but you<br>haven't fully used them.</h1>
+  <p class="hero-sub">You understand more than most. But your advantage isn't yet consistent or monetized.</p>
+  <span class="hero-tension">"I know more than I'm using."</span>
+</section>
+
+<!-- THREE CONCEPTUAL STRIKES -->
+<section class="strikes">
+  <p class="strikes-label">Three things worth sitting with</p>
+
+  <div class="strike">
+    <p class="strike-number">Strike 01</p>
+    <h3>AI doesn't replace thinking—it exposes weak thinking.</h3>
+    <p>The fear isn't that AI will take your job. The fear is that it will make visible what was already fragile. That's not a threat. It's a diagnosis. And a diagnosis is where clarity begins.</p>
+  </div>
+
+  <div class="strike">
+    <p class="strike-number">Strike 02</p>
+    <h3>You're not competing with AI—you're being reshaped by it.</h3>
+    <p>Competition implies you could win or lose. This is different. AI is already changing the frame of what your work means, what your judgment is worth, and how decisions get made around you. The question isn't whether to engage. It's whether to do it consciously.</p>
+  </div>
+
+  <div class="strike">
+    <p class="strike-number">Strike 03</p>
+    <h3>What AI is actually doing to your decisions.</h3>
+    <p>It's not replacing your decisions—it's reshaping the inputs, the speed, and the confidence behind them. You're still deciding. But the conditions have changed. Knowing how is the practical edge most people don't yet have.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- KEY CHAPTERS -->
+<section class="chapters" id="key-chapters">
+  <div class="chapters-header">
+    <h2>The chapters that explain the pattern.</h2>
+    <p>These three chapters were written for the mind that already sees the shape of what's happening.</p>
+  </div>
+
+  <div class="chapters-grid">
+
+    <div class="chapter-card">
+      <p class="chapter-num">Chapter 3</p>
+      <h3>The Mirror and the Muse</h3>
+      <p>AI doesn't generate ideas — it reflects patterns it has already absorbed. Understanding what it mirrors back to you changes how you use it.</p>
+      <div class="chapter-why">
+        <p class="chapter-why-label">Why this chapter</p>
+        <p>You already sense AI reflects something back. This chapter names what it is — and why that matters for your judgment.</p>
+      </div>
+    </div>
+
+    <div class="chapter-card">
+      <p class="chapter-num">Chapter 6</p>
+      <h3>The Feedback Loop: Who's Teaching Whom?</h3>
+      <p>Every interaction trains the system. Every output shapes the next input. The loop is invisible — until you know how to see it.</p>
+      <div class="chapter-why">
+        <p class="chapter-why-label">Why this chapter</p>
+        <p>Pattern recognition is your strength. This chapter shows you the meta-pattern — the loop underneath the loops.</p>
+      </div>
+    </div>
+
+    <div class="chapter-card">
+      <p class="chapter-num">Chapter 9</p>
+      <h3>Who Codes the Future?</h3>
+      <p>The decisions being made now — about who builds AI, who governs it, and who it's built for — are not technical decisions. They are human ones.</p>
+      <div class="chapter-why">
+        <p class="chapter-why-label">Why this chapter</p>
+        <p>You think at the level of consequence. This chapter connects your insight to what's actually at stake.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-block">
+  <p>Your advantage is real. The next step is deciding what to do with it.</p>
+  <a href="https://calendly.com/author-aibookforall/2026_new_year" class="btn-primary">
+    Book My AI Reality Check →
+  </a>
+  <a href="https://aibookforall.com/order" class="btn-secondary">
+    Read the book first →
+  </a>
+</section>
+
+</body>
+</html>
