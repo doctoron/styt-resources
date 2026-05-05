@@ -7,10 +7,8 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --navy: #0A1F44;
-    --navy-light: rgba(10,31,68,0.65);
     --gold: #F5C542;
     --gold-dark: #D4A820;
     --white: #ffffff;
@@ -18,9 +16,7 @@
     --card-bg: rgba(255,255,255,0.06);
     --card-border: rgba(255,255,255,0.14);
   }
-
   html { scroll-behavior: smooth; }
-
   body {
     font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
     background: var(--bg);
@@ -29,14 +25,27 @@
     min-height: 100vh;
   }
 
-  /* ── HERO ── */
-  .hero {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 80px 24px 60px;
+  /* ── OPENING LINE ── */
+  .opening {
     text-align: center;
+    padding: 48px 24px 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .opening p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.45);
+    font-style: italic;
+    line-height: 1.6;
   }
 
+  /* ── HERO ── */
+  .hero {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 32px 24px 52px;
+    text-align: center;
+  }
   .hero-label {
     display: inline-block;
     font-size: 0.68rem;
@@ -44,65 +53,55 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
-
   .hero h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(1.9rem, 5vw, 2.8rem);
     font-weight: 700;
     line-height: 1.2;
     color: var(--white);
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
-
-  .hero h1 em {
-    font-style: normal;
-    color: var(--gold);
-  }
-
+  .hero h1 em { font-style: normal; color: var(--gold); }
   .hero-sub {
-    font-size: 1.1rem;
-    color: rgba(255,255,255,0.72);
-    max-width: 520px;
-    margin: 0 auto 12px;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 480px;
+    margin: 0 auto 10px;
     line-height: 1.7;
   }
-
   .hero-tension {
     display: inline-block;
-    margin-top: 16px;
-    font-size: 0.95rem;
+    margin-top: 14px;
+    font-size: 0.92rem;
     font-style: italic;
-    color: rgba(255,255,255,0.45);
+    color: rgba(255,255,255,0.38);
   }
 
   /* ── STRIKES ── */
   .strikes {
-    max-width: 700px;
+    max-width: 660px;
     margin: 0 auto;
-    padding: 0 24px 60px;
+    padding: 0 24px 48px;
   }
-
   .strikes-label {
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.3);
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
-
   .strike {
     background: var(--card-bg);
     border: 1.5px solid var(--card-border);
     border-radius: 16px;
-    padding: 28px 32px;
-    margin-bottom: 16px;
+    padding: 24px 28px;
+    margin-bottom: 14px;
     position: relative;
     overflow: hidden;
   }
-
   .strike::before {
     content: '';
     position: absolute;
@@ -111,129 +110,123 @@
     background: var(--gold);
     border-radius: 3px 0 0 3px;
   }
-
   .strike-number {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 8px;
+    margin-bottom: 7px;
   }
-
   .strike h3 {
-    font-size: 1.15rem;
+    font-size: 1.08rem;
     font-weight: 700;
     color: var(--white);
-    margin-bottom: 8px;
+    margin-bottom: 7px;
     line-height: 1.35;
   }
-
   .strike p {
-    font-size: 0.92rem;
-    color: rgba(255,255,255,0.62);
-    line-height: 1.65;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
   }
 
   /* ── CHAPTERS ── */
   .chapters {
-    max-width: 860px;
+    max-width: 840px;
     margin: 0 auto;
-    padding: 0 24px 60px;
+    padding: 0 24px 48px;
   }
-
   .chapters-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
-
   .chapters-header h2 {
-    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
     font-weight: 700;
     color: var(--white);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
-
   .chapters-header p {
-    font-size: 0.95rem;
-    color: rgba(255,255,255,0.55);
-    max-width: 480px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.45);
+    max-width: 440px;
     margin: 0 auto;
   }
-
   .chapters-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
+    gap: 18px;
   }
-
   .chapter-card {
     background: rgba(255,255,255,0.05);
     border: 1.5px solid rgba(255,255,255,0.1);
     border-radius: 14px;
-    padding: 28px 22px;
+    padding: 24px 20px;
   }
-
   .chapter-num {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     font-weight: 700;
     letter-spacing: 0.13em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 10px;
+    margin-bottom: 9px;
   }
-
   .chapter-card h3 {
-    font-size: 1rem;
+    font-size: 0.97rem;
     font-weight: 700;
     color: var(--white);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     line-height: 1.4;
   }
-
   .chapter-card p {
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.58);
-    line-height: 1.65;
-    margin-bottom: 16px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.52);
+    line-height: 1.6;
+    margin-bottom: 14px;
   }
-
-  .chapter-why {
-    padding-top: 14px;
+  .chapter-reveals {
+    padding-top: 12px;
     border-top: 1px solid rgba(255,255,255,0.08);
   }
-
-  .chapter-why-label {
-    font-size: 0.62rem;
+  .chapter-reveals-label {
+    font-size: 0.6rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.28);
     margin-bottom: 5px;
   }
-
-  .chapter-why p {
-    font-size: 0.84rem;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.6;
+  .chapter-reveals p {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.52);
+    line-height: 1.55;
     margin: 0;
+    font-style: italic;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    max-width: 660px;
+    margin: 0 auto 48px;
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.07);
   }
 
   /* ── CTA ── */
   .cta-block {
-    max-width: 540px;
+    max-width: 500px;
     margin: 0 auto;
-    padding: 20px 24px 80px;
+    padding: 0 24px 72px;
     text-align: center;
   }
-
-  .cta-block p {
-    font-size: 0.95rem;
-    color: rgba(255,255,255,0.55);
+  .cta-bridge {
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.82);
     margin-bottom: 24px;
-    line-height: 1.65;
+    line-height: 1.55;
   }
-
   .btn-primary {
     display: inline-block;
     background: var(--gold);
@@ -243,40 +236,32 @@
     font-weight: 700;
     font-size: 1rem;
     text-decoration: none;
-    margin-bottom: 14px;
     transition: background 0.15s;
   }
-
   .btn-primary:hover { background: var(--gold-dark); }
-
   .btn-secondary {
     display: block;
-    margin-top: 12px;
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.45);
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    margin-top: 16px;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.38);
+    text-decoration: none;
   }
-
-  .btn-secondary:hover { color: rgba(255,255,255,0.75); }
-
-  /* ── DIVIDER ── */
-  .divider {
-    max-width: 700px;
-    margin: 0 auto 60px;
-    border: none;
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
+  .btn-secondary:hover { color: rgba(255,255,255,0.65); }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 720px) {
+  @media (max-width: 680px) {
     .chapters-grid { grid-template-columns: 1fr; }
-    .hero { padding: 60px 20px 40px; }
-    .strike { padding: 22px 24px; }
+    .hero { padding: 28px 20px 40px; }
+    .strike { padding: 20px 22px; }
   }
 </style>
 </head>
 <body>
+
+<!-- OPENING LINE -->
+<div class="opening">
+  <p>Most people skip this step. They go straight to tools. You stopped here.</p>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -286,27 +271,28 @@
   <span class="hero-tension">"I know more than I'm using."</span>
 </section>
 
-<!-- THREE CONCEPTUAL STRIKES -->
+<!-- THREE STRIKES -->
 <section class="strikes">
   <p class="strikes-label">Three things worth sitting with</p>
 
   <div class="strike">
-    <p class="strike-number">Strike 01</p>
+    <p class="strike-number">01</p>
     <h3>AI doesn't replace thinking—it exposes weak thinking.</h3>
-    <p>The fear isn't that AI will take your job. The fear is that it will make visible what was already fragile. That's not a threat. It's a diagnosis. And a diagnosis is where clarity begins.</p>
+    <p>The fear isn't that AI will take your job. It's that it will make visible what was already fragile. That's not a threat. It's a diagnosis. And a diagnosis is where clarity begins.</p>
   </div>
 
   <div class="strike">
-    <p class="strike-number">Strike 02</p>
+    <p class="strike-number">02</p>
     <h3>You're not competing with AI—you're being reshaped by it.</h3>
-    <p>Competition implies you could win or lose. This is different. AI is already changing the frame of what your work means, what your judgment is worth, and how decisions get made around you. The question isn't whether to engage. It's whether to do it consciously.</p>
+    <p>AI is already changing what your work means, what your judgment is worth, and how decisions get made around you. The question isn't whether to engage. It's whether to do it consciously.</p>
   </div>
 
   <div class="strike">
-    <p class="strike-number">Strike 03</p>
+    <p class="strike-number">03</p>
     <h3>What AI is actually doing to your decisions.</h3>
-    <p>It's not replacing your decisions—it's reshaping the inputs, the speed, and the confidence behind them. You're still deciding. But the conditions have changed. Knowing how is the practical edge most people don't yet have.</p>
+    <p>It's not replacing your decisions—it's reshaping the inputs, speed, and confidence behind them. You're still deciding. But the conditions have changed. Knowing how is the practical edge most people don't yet have.</p>
   </div>
+
 </section>
 
 <hr class="divider">
@@ -315,7 +301,7 @@
 <section class="chapters" id="key-chapters">
   <div class="chapters-header">
     <h2>The chapters that explain the pattern.</h2>
-    <p>These three chapters were written for the mind that already sees the shape of what's happening.</p>
+    <p>Written for the mind that already sees the shape of what's happening.</p>
   </div>
 
   <div class="chapters-grid">
@@ -323,10 +309,10 @@
     <div class="chapter-card">
       <p class="chapter-num">Chapter 3</p>
       <h3>The Mirror and the Muse</h3>
-      <p>AI doesn't generate ideas — it reflects patterns it has already absorbed. Understanding what it mirrors back to you changes how you use it.</p>
-      <div class="chapter-why">
-        <p class="chapter-why-label">Why this chapter</p>
-        <p>You already sense AI reflects something back. This chapter names what it is — and why that matters for your judgment.</p>
+      <p>AI doesn't generate ideas — it reflects patterns already absorbed. Understanding what it mirrors back changes how you use it.</p>
+      <div class="chapter-reveals">
+        <p class="chapter-reveals-label">What this reveals</p>
+        <p>You're already questioning outputs — not just accepting them.</p>
       </div>
     </div>
 
@@ -334,19 +320,19 @@
       <p class="chapter-num">Chapter 6</p>
       <h3>The Feedback Loop: Who's Teaching Whom?</h3>
       <p>Every interaction trains the system. Every output shapes the next input. The loop is invisible — until you know how to see it.</p>
-      <div class="chapter-why">
-        <p class="chapter-why-label">Why this chapter</p>
-        <p>Pattern recognition is your strength. This chapter shows you the meta-pattern — the loop underneath the loops.</p>
+      <div class="chapter-reveals">
+        <p class="chapter-reveals-label">What this reveals</p>
+        <p>You think in systems. You'll recognize yourself in this chapter immediately.</p>
       </div>
     </div>
 
     <div class="chapter-card">
       <p class="chapter-num">Chapter 9</p>
       <h3>Who Codes the Future?</h3>
-      <p>The decisions being made now — about who builds AI, who governs it, and who it's built for — are not technical decisions. They are human ones.</p>
-      <div class="chapter-why">
-        <p class="chapter-why-label">Why this chapter</p>
-        <p>You think at the level of consequence. This chapter connects your insight to what's actually at stake.</p>
+      <p>The decisions being made now — about who builds AI and who it's built for — are not technical decisions. They are human ones.</p>
+      <div class="chapter-reveals">
+        <p class="chapter-reveals-label">What this reveals</p>
+        <p>You think at the level of consequence. This chapter meets you there.</p>
       </div>
     </div>
 
@@ -355,12 +341,12 @@
 
 <!-- CTA -->
 <section class="cta-block">
-  <p>Your advantage is real. The next step is deciding what to do with it.</p>
+  <p class="cta-bridge">You don't need more information. You need to know where you stand.</p>
   <a href="https://calendly.com/author-aibookforall/2026_new_year" class="btn-primary">
     Book My AI Reality Check →
   </a>
   <a href="https://aibookforall.com/order" class="btn-secondary">
-    Read the book first →
+    If you prefer to explore deeper, start here
   </a>
 </section>
 
